@@ -16,7 +16,7 @@
 
 using namespace std;
 
-class Board
+class Board // отрисовывает доску
 {
 public:
     Board() = default;
@@ -24,7 +24,7 @@ public:
     {
     }
 
-    // draws start board
+    // начальное положение отрисовки
     int start_draw()
     {
         if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -237,7 +237,7 @@ private:
         add_history();
     }
 
-    // function that re-draw all the textures
+    // функция, которая повторно рисует все текстуры
     void rerender()
     {
         // draw board
@@ -295,7 +295,7 @@ private:
         }
         SDL_RenderSetScale(ren, 1, 1);
 
-        // draw arrows
+        // draw arrows 
         SDL_Rect rect_left{ W / 40, H / 40, W / 15, H / 15 };
         SDL_RenderCopy(ren, back, NULL, &rect_left);
         SDL_Rect replay_rect{ W * 109 / 120, H / 40, W / 15, H / 15 };

@@ -13,14 +13,14 @@ class Config
         reload();
     }
 
-    void reload()
+    void reload() // загрузка настроек из файла settings.json
     {
         std::ifstream fin(project_path + "settings.json");
         fin >> config;
         fin.close();
     }
 
-    auto operator()(const string &setting_dir, const string &setting_name) const
+    auto operator()(const string &setting_dir, const string &setting_name) const // позволяет получать значение нужной настройки
     {
         return config[setting_dir][setting_name];
     }

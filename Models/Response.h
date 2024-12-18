@@ -2,9 +2,9 @@
 
 enum class Response
 {
-    OK,
-    BACK,
-    REPLAY,
-    QUIT,
-    CELL
+    OK, 
+    BACK, // "нажатие кнопки "назад"
+    REPLAY, // нажатие кнопки "заново"
+    QUIT, // нажатие кнопки "выход"
+    CELL // нажатие на одну из клеток
 };

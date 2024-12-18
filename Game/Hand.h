@@ -18,16 +18,16 @@ class Hand
         Response resp = Response::OK;
         int x = -1, y = -1;
         int xc = -1, yc = -1;
-        while (true)
+        while (true) // ожидает клик
         {
             if (SDL_PollEvent(&windowEvent))
             {
                 switch (windowEvent.type)
                 {
-                case SDL_QUIT:
+                case SDL_QUIT: // выход
                     resp = Response::QUIT;
                     break;
-                case SDL_MOUSEBUTTONDOWN:
+                case SDL_MOUSEBUTTONDOWN: // нажатие
                     x = windowEvent.motion.x;
                     y = windowEvent.motion.y;
                     xc = int(y / (board->H / 10) - 1);
@@ -50,7 +50,7 @@ class Hand
                         yc = -1;
                     }
                     break;
-                case SDL_WINDOWEVENT:
+                case SDL_WINDOWEVENT: // изменение размера окна
                     if (windowEvent.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
                     {
                         board->reset_window_size();
@@ -61,10 +61,10 @@ class Hand
                     break;
             }
         }
-        return {resp, xc, yc};
+        return {resp, xc, yc}; // возвречает тип ответа и координаты (если они есть)
     }
 
-    Response wait() const
+    Response wait() const // ожидает нажатия после конца игры
     {
         SDL_Event windowEvent;
         Response resp = Response::OK;
