@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -16,7 +16,7 @@
 
 using namespace std;
 
-class Board // отрисовывает доску
+class Board // РѕС‚СЂРёСЃРѕРІС‹РІР°РµС‚ РґРѕСЃРєСѓ
 {
 public:
     Board() = default;
@@ -24,7 +24,7 @@ public:
     {
     }
 
-    // начальное положение отрисовки
+    // РЅР°С‡Р°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ РѕС‚СЂРёСЃРѕРІРєРё
     int start_draw()
     {
         if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -237,7 +237,7 @@ private:
         add_history();
     }
 
-    // функция, которая повторно рисует все текстуры
+    // С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ РїРѕРІС‚РѕСЂРЅРѕ СЂРёСЃСѓРµС‚ РІСЃРµ С‚РµРєСЃС‚СѓСЂС‹
     void rerender()
     {
         // draw board

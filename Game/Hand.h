@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <tuple>
 
 #include "../Models/Move.h"
@@ -18,16 +18,16 @@ class Hand
         Response resp = Response::OK;
         int x = -1, y = -1;
         int xc = -1, yc = -1;
-        while (true) // ожидает клик
+        while (true) // РѕР¶РёРґР°РµС‚ РєР»РёРє
         {
             if (SDL_PollEvent(&windowEvent))
             {
                 switch (windowEvent.type)
                 {
-                case SDL_QUIT: // выход
+                case SDL_QUIT: // РІС‹С…РѕРґ
                     resp = Response::QUIT;
                     break;
-                case SDL_MOUSEBUTTONDOWN: // нажатие
+                case SDL_MOUSEBUTTONDOWN: // РЅР°Р¶Р°С‚РёРµ
                     x = windowEvent.motion.x;
                     y = windowEvent.motion.y;
                     xc = int(y / (board->H / 10) - 1);
@@ -50,7 +50,7 @@ class Hand
                         yc = -1;
                     }
                     break;
-                case SDL_WINDOWEVENT: // изменение размера окна
+                case SDL_WINDOWEVENT: // РёР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕРєРЅР°
                     if (windowEvent.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
                     {
                         board->reset_window_size();
@@ -61,10 +61,10 @@ class Hand
                     break;
             }
         }
-        return {resp, xc, yc}; // возвречает тип ответа и координаты (если они есть)
+        return {resp, xc, yc}; // РІРѕР·РІСЂРµС‡Р°РµС‚ С‚РёРї РѕС‚РІРµС‚Р° Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ (РµСЃР»Рё РѕРЅРё РµСЃС‚СЊ)
     }
 
-    Response wait() const // ожидает нажатия после конца игры
+    Response wait() const // РѕР¶РёРґР°РµС‚ РЅР°Р¶Р°С‚РёСЏ РїРѕСЃР»Рµ РєРѕРЅС†Р° РёРіСЂС‹
     {
         SDL_Event windowEvent;
         Response resp = Response::OK;
